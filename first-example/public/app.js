@@ -1,14 +1,14 @@
 var itemIndex = 0;
 
-function GetFreeItemIndex() {
-	itemIndex++;
-	return itemIndex;
+function getFreeItemIndex() {
+    itemIndex++;
+     return itemIndex;
 }
 
-var testData = [
-    { Id: GetFreeItemIndex(), Text: "What is Web Servers?", IsDone: false },
-    { Id: GetFreeItemIndex(), Text: "What is Webpack?", IsDone: true },
-    { Id: GetFreeItemIndex(), Text: "What is Cloud & Serverless?", IsDone: false },
+const testData = [
+    { Id: getFreeItemIndex(), Text: "What is Web Servers?", isDone: false },
+    { Id: getFreeItemIndex(), Text: "What is Webpack?", isDone: true },
+    { Id: getFreeItemIndex(), Text: "What is Cloud & Serverless?", isDone: false },
   ];
 
   var todoListApp = new Vue({
@@ -19,15 +19,15 @@ var testData = [
       },
       methods: {
         addTodo: function() {
-			if (this.newTodoText.trim() === "")
-				return;
-			
-			this.todoItems.push({ Id: GetFreeItemIndex(), Text: this.newTodoText, IsDone: false});
-			this.newTodoText = "";
-			
-		},
-		removeTodo: function(todo) {
-			this.todoItems.splice(this.todoItems.indexOf(todo), 1);
-		}
+	    if (this.newTodoText.trim() === '')
+                 return;
+	    this.todoItems.push({ id: getFreeItemIndex(), text: this.newTodoText, isDone: false});
+	    this.newTodoText = "";
+
+	},
+	removeTodo: function(todo) {
+	    this.todoItems.splice(this.todoItems.indexOf(todo), 1);
+	}
       }
   })
+  
